@@ -68,7 +68,7 @@ def get_elements(soup: BeautifulSoup, path: str, **kwargs: Any) -> list[Tag] | N
     return soup.find_all(path, **kwargs)
 
 
-def get_naver_blog_content(blog_url: str) -> str:
+def get_naver_blog_content(blog_url: str) -> str | None:
     """
     주어진 네이버 블로그 URL에서 블로그 콘텐츠를 추출하여 반환합니다.
 
@@ -80,6 +80,10 @@ def get_naver_blog_content(blog_url: str) -> str:
 
     if iframe:
         content = get_iframe_content(iframe)
+
+        if not content:
+            return None
+
         content = content.replace("\n", "")
         content = content.replace("\u200B", "")
         return content
