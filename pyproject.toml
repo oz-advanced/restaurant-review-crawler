@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "restaurant-review-crawler"
+version = "0.0.1"
+description = "식당 리뷰 크롤링 솔루션"
+authors = ["Dae-Jeong <v4chelsea@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+beautifulsoup4 = "^4.12.3"
+selenium = "^4.22.0"
+pandas = "^2.2.2"
+pydantic = {extras = ["email"], version = "^2.8.2"}
+requests = "^2.32.3"
+pymysql = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
