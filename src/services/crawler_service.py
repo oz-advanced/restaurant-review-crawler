@@ -1,7 +1,7 @@
 from typing import Any
 
 from bs4 import BeautifulSoup, Tag
-from src.utils import NAVER_BLOG_IFRAME_URL
+from utils import NAVER_BLOG_IFRAME_URL
 
 import requests
 
