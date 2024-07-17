@@ -1,6 +1,6 @@
 # db/db_manager.py
 import pymysql
-from src.settings import DB_CONFIG
+from settings import DB_CONFIG
 
 
 class DBManager:
