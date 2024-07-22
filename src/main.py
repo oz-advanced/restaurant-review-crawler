@@ -1,5 +1,5 @@
 from services import get_soup, get_elements, get_naver_blog_content
-from models.blogs import Blog
+from models import Blog
 from databases import DBManager
 from utils import RESTAURANT_LIST, NAVER_BLOG_URL
 import time
