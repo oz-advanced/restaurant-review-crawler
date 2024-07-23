@@ -13,6 +13,7 @@ pandas = "^2.2.2"
 pydantic = {extras = ["email"], version = "^2.8.2"}
 requests = "^2.32.3"
 pymysql = "^1.1.1"
+webdriver-manager = "^4.0.1"
 
 
 [build-system]
