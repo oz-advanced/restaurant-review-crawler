@@ -1,5 +1,4 @@
 from typing import Any
-
 from bs4 import BeautifulSoup, Tag
 from utils import NAVER_BLOG_IFRAME_URL
 
