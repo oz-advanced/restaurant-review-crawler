@@ -1,3 +1,6 @@
+from .bs4_util import *
+
+
 NAVER_BLOG_URL = "https://search.naver.com/search.naver?ssc=tab.blog.all&sm=tab_jum&query="
 NAVER_BLOG_IFRAME_URL = "https://blog.naver.com"
 

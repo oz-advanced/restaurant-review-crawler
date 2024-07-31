@@ -7,7 +7,7 @@ DB_CONFIG = {
     'port': 3306,
     'user': 'root',
     'password': 'rlaeowjd1!',
-    'db': 'test',
+    'db': 'restaurant_crawler',
     'charset': 'utf8mb4',
     'cursorclass': pymysql.cursors.DictCursor
 }

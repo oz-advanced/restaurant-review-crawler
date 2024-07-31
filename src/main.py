@@ -1,13 +1,12 @@
+'''
 from services import get_soup, get_elements, get_naver_blog_content
 from models import Blog
 from databases import DBManager
 from utils import RESTAURANT_LIST, NAVER_BLOG_URL
 import time
 
-
 soup_dict = {}
 blog_dict = {}
-
 
 def main():
     db_manager = DBManager()
@@ -63,7 +62,33 @@ def main():
             db_manager.insert_data(query=query, params=values)
 
     print(blog_dict)
+'''
+from crawlers import ReviewBlogInfoCrawler, BlogContentCrawler
+from databases import DBManager
+from utils import RESTAURANT_LIST
+
+
+def main():
+    db_manager = DBManager()
+
+    # 추후 식당 정보 크롤링 로직으로 변경
+    for restaurant in RESTAURANT_LIST:
+        insert_sql = """
+        insert into restaurant (name)
+        values (%s)
+        """
+
+        params = (restaurant,)
+
+        db_manager.insert_data(query=insert_sql, params=params)
+
+    db_manager.close_connection()
 
 
 if __name__ == "__main__":
     main()
+    review_blog_info_crawler = ReviewBlogInfoCrawler()
+    blog_content_crawler = BlogContentCrawler()
+
+    review_blog_info_crawler.run()
+    blog_content_crawler.run()
