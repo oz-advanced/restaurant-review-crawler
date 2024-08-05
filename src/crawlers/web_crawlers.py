@@ -9,6 +9,8 @@ from bs4 import Tag
 from crawlers.fetchers import Fetcher
 from crawlers.parsers import Parser
 
+from crawlers.selenium import SeleniumCrawler
+
 from databases import DBManager
 
 from models import (Restaurant,
@@ -30,7 +32,6 @@ class Crawler(metaclass=ABCMeta):
         self.parser = parser
         self.fetcher = fetcher
         self.max_threads = max_threads
-
     @abstractmethod
     def initialize(self):
         ...
@@ -63,16 +64,21 @@ class Crawler(metaclass=ABCMeta):
             self.stop()
 
 
-class RestaurantInfoCrawler(Crawler):
-    def __init__(self):
-        super().__init__()
+class RestaurantInfoCrawler:
+    def __init__(self) -> None:
+        self.selenium = SeleniumCrawler('https://product.kyobobook.co.kr/detail/S000001865118', 'ico_arw')
+        self.get_items = self.selenium.get_items('book_contents_item')
 
-    def initialize(self):
-        # 어디서 정보 가여
-        pass
+    def sorted_items(self) -> list:
+        sorted_items = self.selenium.sort_items(self.get_items)
 
-    def crawl(self):
-        pass
+        return sorted_items
+
+    @staticmethod
+    def save_file(sorted_items):
+        with open('../src/utils/__init__.py', 'a') as file:
+            file.write(f'RESTAURANT_LIST = {sorted_items}')
+
 
 
 class ReviewBlogInfoCrawler(Crawler):
