@@ -1,3 +1,1 @@
-from .web_crawlers import Crawler, RestaurantInfoCrawler, ReviewBlogInfoCrawler, BlogContentCrawler
-from .parsers import Parser
-from .fetchers import Fetcher
+from crawlers.legacy.parsers import Parser
