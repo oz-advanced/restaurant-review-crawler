@@ -6,14 +6,14 @@ from time import sleep
 import pymysql.err
 from bs4 import Tag
 
-from crawlers.fetchers import Fetcher
+from fetchers.fetcher import Fetcher
 from crawlers.legacy.parsers import Parser
 
 from databases import DBManager
 
 from models import (Restaurant,
                     Blog, InsertBlogDto,
-                    Content, InsertContentDto)
+                    InsertContentDto)
 from models.enums import BlogPlatform
 from utils import NAVER_BLOG_URL, NAVER_BLOG_IFRAME_URL
 

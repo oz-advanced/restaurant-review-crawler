@@ -15,4 +15,10 @@ class Parser:
     def get_elements(self, path: str, **kwargs: any) -> list[Tag] | None:
         return self.__soup.find_all(path, **kwargs)
 
+    @staticmethod
+    def get_text_by_tag(tag: Tag) -> str | None:
+        return tag.get_text()
 
+    @staticmethod
+    def get_attr_by_tag(tag: Tag, attr: str) -> str | None:
+        return tag.get(attr)

@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from crawlers.fetchers import Fetcher
+from fetchers.fetcher import Fetcher
 from utils import get_chrome_driver, ValidateUtil
 
 

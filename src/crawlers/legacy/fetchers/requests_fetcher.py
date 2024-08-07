@@ -1,6 +1,6 @@
 import requests
 
-from crawlers.fetchers import Fetcher
+from fetchers.fetcher import Fetcher
 from utils import ValidateUtil
 
 

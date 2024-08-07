@@ -1,1 +1,3 @@
-from crawlers.legacy.parsers import Parser
+from .crawler import Crawler, DynamicCrawler, StaticCrawler
+
+

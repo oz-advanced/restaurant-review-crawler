@@ -1,21 +1,5 @@
-from abc import ABC, abstractmethod
-
-import requests
-
-from utils import ValidateUtil
-
-
-class Fetcher(ABC):
-    def __init__(self, endpoint: str) -> None:
-        self.__endpoint = endpoint
-
-    @property
-    def endpoint(self):
-        return self.__endpoint
-
-    @abstractmethod
-    def fetch(self, **kwargs: any) -> str:
-        ...
+from abc import abstractmethod
+from fetcher import Fetcher
 
 
 class DynamicFetcher(Fetcher):
@@ -30,15 +14,6 @@ class DynamicFetcher(Fetcher):
     @abstractmethod
     def close(self) -> None:
         ...
-
-
-class RequestsFetcher(Fetcher):
-    def __init__(self, endpoint: str) -> None:
-        super().__init__(endpoint)
-
-    def fetch(self, **kwargs: any) -> str:
-        ValidateUtil.validate_endpoint(self.__endpoint)
-        return requests.get(url=self.__endpoint, **kwargs).text
 
 
 class SeleniumDynamicFetcher(DynamicFetcher):
@@ -66,3 +41,4 @@ class SeleniumDynamicFetcher(DynamicFetcher):
         else:
             self.move_page()
         return self.__driver.page_source
+
