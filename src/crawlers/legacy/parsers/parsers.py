@@ -1,8 +1,12 @@
 from bs4 import BeautifulSoup, Tag
 from typing import Any
+from abc import ABC
+
+class Parser(ABC):
+    pass
 
 
-class Parser:
+class Bs4Parser:
     @staticmethod
     def parse_html(html: str) -> BeautifulSoup:
         """

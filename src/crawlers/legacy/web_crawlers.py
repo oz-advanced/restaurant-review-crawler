@@ -6,14 +6,14 @@ from time import sleep
 import pymysql.err
 from bs4 import Tag
 
-from crawlers.fetchers import Fetcher
-from crawlers.parsers import Parser
+from fetchers.fetcher import Fetcher
+from crawlers.legacy.parsers import Parser
 
 from databases import DBManager
 
 from models import (Restaurant,
                     Blog, InsertBlogDto,
-                    Content, InsertContentDto)
+                    InsertContentDto)
 from models.enums import BlogPlatform
 from utils import NAVER_BLOG_URL, NAVER_BLOG_IFRAME_URL
 
@@ -108,7 +108,7 @@ class ReviewBlogInfoCrawler(Crawler):
             restaurant = self.queue.pop()
             search_url = "{0}{1}".format(NAVER_BLOG_URL, restaurant.name)
 
-            fetch_html = self.fetcher.fetch_html(url=search_url)
+            fetch_html = self.fetcher.fetch_html(endpoint=search_url)
             parsed_html = self.parser.parse_html(html=fetch_html)
 
             review_blog_results = self.parser.get_elements(soup=parsed_html, path='a', class_='title_link')
@@ -232,7 +232,7 @@ class BlogContentCrawler(Crawler):
             sleep(1)
             blog = self.queue.pop()
 
-            fetch_html = self.fetcher.fetch_html(url=blog.link)
+            fetch_html = self.fetcher.fetch_html(endpoint=blog.link)
             parsed_html = self.parser.parse_html(html=fetch_html)
 
             iframe = self.parser.get_element(soup=parsed_html,
@@ -245,7 +245,7 @@ class BlogContentCrawler(Crawler):
             iframe_src = iframe.get('src')
             blog_content_url = f"{NAVER_BLOG_IFRAME_URL}{iframe_src}"
 
-            fetch_iframe_html = self.fetcher.fetch_html(url=blog_content_url)
+            fetch_iframe_html = self.fetcher.fetch_html(endpoint=blog_content_url)
             parsed_iframe_html = self.parser.parse_html(html=fetch_iframe_html)
 
             content = self.parser.get_element(soup=parsed_iframe_html,
