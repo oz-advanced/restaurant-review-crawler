@@ -832,41 +832,22 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "selenium"
-version = "4.22.0"
+version = "4.23.1"
 description = "Official Python bindings for Selenium WebDriver"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "selenium-4.22.0-py3-none-any.whl", hash = "sha256:e424991196e9857e19bf04fe5c1c0a4aac076794ff5e74615b1124e729d93104"},
-    {file = "selenium-4.22.0.tar.gz", hash = "sha256:903c8c9d61b3eea6fcc9809dc7d9377e04e2ac87709876542cc8f863e482c4ce"},
+    {file = "selenium-4.23.1-py3-none-any.whl", hash = "sha256:3a8d9f23dc636bd3840dd56f00c2739e32ec0c1e34a821dd553e15babef24477"},
+    {file = "selenium-4.23.1.tar.gz", hash = "sha256:128d099e66284437e7128d2279176ec7a06e6ec7426e167f5d34987166bd8f46"},
 ]
 
 [package.dependencies]
 certifi = ">=2021.10.8"
 trio = ">=0.17,<1.0"
 trio-websocket = ">=0.9,<1.0"
-typing_extensions = ">=4.9.0"
+typing_extensions = ">=4.9,<5.0"
 urllib3 = {version = ">=1.26,<3", extras = ["socks"]}
-websocket-client = ">=1.8.0"
-
-[[package]]
-name = "selenium"
-version = "4.23.0"
-description = "Official Python bindings for Selenium WebDriver"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "selenium-4.23.0-py3-none-any.whl", hash = "sha256:3fa5124c8ba071a2d22f7512a80e7799f5a5492d5e20ada1909fe66a476b2a44"},
-    {file = "selenium-4.23.0.tar.gz", hash = "sha256:88f36e3fe6d1d3a9e0626f527f4bd00f0300d43e93f51f59771a911078d4f472"},
-]
-
-[package.dependencies]
-certifi = ">=2021.10.8"
-trio = ">=0.17,<1.0"
-trio-websocket = ">=0.9,<1.0"
-typing_extensions = ">=4.9.0,<4.10.0"
-urllib3 = {version = ">=1.26,<3", extras = ["socks"]}
-websocket-client = "1.8.0"
+websocket-client = ">=1.8,<2.0"
 
 [[package]]
 name = "six"
@@ -1035,17 +1016,6 @@ wsproto = ">=0.14"
 
 [[package]]
 name = "typing-extensions"
-version = "4.9.0"
-description = "Backported and Experimental Type Hints for Python 3.8+"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "typing_extensions-4.9.0-py3-none-any.whl", hash = "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"},
-    {file = "typing_extensions-4.9.0.tar.gz", hash = "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"},
-]
-
-[[package]]
-name = "typing-extensions"
 version = "4.12.2"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
@@ -1088,13 +1058,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "webdriver-manager"
-version = "4.0.1"
+version = "4.0.2"
 description = "Library provides the way to automatically manage drivers for different browsers"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "webdriver_manager-4.0.1-py2.py3-none-any.whl", hash = "sha256:d7970052295bb9cda2c1a24cf0b872dd2c41ababcc78f7b6b8dc37a41e979a7e"},
-    {file = "webdriver_manager-4.0.1.tar.gz", hash = "sha256:25ec177c6a2ce9c02fb8046f1b2732701a9418d6a977967bb065d840a3175d87"},
+    {file = "webdriver_manager-4.0.2-py2.py3-none-any.whl", hash = "sha256:75908d92ecc45ff2b9953614459c633db8f9aa1ff30181cefe8696e312908129"},
+    {file = "webdriver_manager-4.0.2.tar.gz", hash = "sha256:efedf428f92fd6d5c924a0d054e6d1322dd77aab790e834ee767af392b35590f"},
 ]
 
 [package.dependencies]
@@ -1135,4 +1105,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a09051c2837e01f513a559e03879809f5f9aa4b15a0400ec7e7055ce8b635e9c"
+content-hash = "ac0433081ae57bbfcf8818509087bdab43fd08fe60d42dbc016a6fd4931d6ce8"

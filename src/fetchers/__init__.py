@@ -1,2 +1,2 @@
-from .fetcher import Fetcher, RequestsFetcher
+from .fetcher import Fetcher, BaseFetcher, RequestsFetcher
 from .dynamic_fetcher import DynamicFetcher, SeleniumDynamicFetcher

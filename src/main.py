@@ -62,7 +62,9 @@ def main():
             db_manager.insert_data(query=query, params=values)
 
     print(blog_dict)
-'''
+
+# ================================================================================================
+
 from crawlers import ReviewBlogInfoCrawler, BlogContentCrawler
 from databases import DBManager
 from utils import RESTAURANT_LIST
@@ -92,3 +94,15 @@ if __name__ == "__main__":
 
     review_blog_info_crawler.run()
     blog_content_crawler.run()
+'''
+
+from application import CrawlApplication
+
+
+def main():
+    app = CrawlApplication()
+    app.run()
+
+
+if __name__ == "__main__":
+    main()

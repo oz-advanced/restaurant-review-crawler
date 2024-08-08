@@ -1,27 +1,22 @@
-from abc import ABC, abstractmethod
-from utils import ValidateUtil
+from abc import ABC, abstractmethod, ABCMeta
+from validators import HttpValidator
 
 import requests
 
 
-class Fetcher(ABC):
-    def __init__(self, endpoint: str) -> None:
-        self.__endpoint = endpoint
+class BaseFetcher(metaclass=ABCMeta):
+    ...
 
-    @property
-    def endpoint(self):
-        return self.__endpoint
 
+class Fetcher(BaseFetcher):
+    @staticmethod
     @abstractmethod
-    def fetch(self, **kwargs: any) -> str:
+    def fetch(**kwargs: any) -> str:
         ...
 
 
 class RequestsFetcher(Fetcher):
-    def __init__(self, endpoint: str) -> None:
-        super().__init__(endpoint)
-
-    def fetch(self, **kwargs: any) -> str:
-        ValidateUtil.validate_endpoint(self.__endpoint)
-        return requests.get(url=self.__endpoint, **kwargs).text
-
+    @staticmethod
+    def fetch(endpoint: str, **kwargs: any) -> str:
+        HttpValidator.validate_endpoint(endpoint)
+        return requests.get(url=endpoint, **kwargs).text

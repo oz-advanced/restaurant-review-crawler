@@ -1,11 +1,12 @@
+from selenium.webdriver.remote.webdriver import WebDriver as RemoteWebDriver
 from abc import abstractmethod
-from fetcher import Fetcher
+from fetchers import BaseFetcher
 
 
-class DynamicFetcher(Fetcher):
-    def __init__(self, endpoint: str, driver: any):
-        super().__init__(endpoint=endpoint)
-        self.__driver = driver
+class DynamicFetcher(BaseFetcher):
+    @abstractmethod
+    def fetch(self, endpoint: str) -> str:
+        ...
 
     @abstractmethod
     def move_page(self, endpoint: str) -> None:
@@ -17,28 +18,19 @@ class DynamicFetcher(Fetcher):
 
 
 class SeleniumDynamicFetcher(DynamicFetcher):
-    def __init__(self, endpoint: str, driver: any):
-        super().__init__(endpoint, driver)
+    def __init__(self, driver: RemoteWebDriver) -> None:
+        self.__driver = driver
 
-    def __del__(self):
+    def __del__(self) -> None:
         self.close()
 
     def close(self) -> None:
         if self.__driver:
             self.__driver.close()
 
-    def set_endpoint(self, endpoint: str):
-        self.__endpoint = endpoint
+    def move_page(self, endpoint: str) -> None:
+        self.__driver.get(url=endpoint)
 
-    def move_page(self, endpoint: str = None) -> None:
-        if endpoint:
-            self.__driver.get(url=endpoint)
-        self.__driver.get(url=self.__endpoint)
-
-    def fetch(self, **kwargs: any) -> str:
-        if kwargs.get("endpoint"):
-            self.move_page(endpoint=kwargs.get("endpoint"))
-        else:
-            self.move_page()
+    def fetch(self, endpoint: str) -> str:
+        self.move_page(endpoint=endpoint)
         return self.__driver.page_source
-

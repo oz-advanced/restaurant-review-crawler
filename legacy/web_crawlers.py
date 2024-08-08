@@ -7,7 +7,7 @@ import pymysql.err
 from bs4 import Tag
 
 from fetchers.fetcher import Fetcher
-from crawlers.legacy.parsers import Parser
+from legacy.parsers import Parser
 
 from databases import DBManager
 
