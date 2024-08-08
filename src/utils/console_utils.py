@@ -1,4 +1,4 @@
-class ConsoleUtil:
+class ConsoleUtils:
     @staticmethod
     def print_empty_line() -> None:
         print("=============================")

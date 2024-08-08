@@ -3,7 +3,7 @@ from abc import abstractmethod
 from crawlers import Crawler
 from fetchers import Fetcher
 from parsers import Parser
-from utils import ConsoleUtil
+from utils import ConsoleUtils
 
 
 class StaticCrawler(Crawler):
@@ -21,9 +21,9 @@ class StaticCrawler(Crawler):
         ...
 
     def stop(self):
-        ConsoleUtil.print_empty_line()
-        ConsoleUtil.print_message("Crawler 종료")
-        ConsoleUtil.print_empty_line()
+        ConsoleUtils.print_empty_line()
+        ConsoleUtils.print_message("Crawler 종료")
+        ConsoleUtils.print_empty_line()
 
 
 class RestaurantInfoCrawler(StaticCrawler):

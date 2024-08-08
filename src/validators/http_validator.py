@@ -2,7 +2,7 @@ import requests
 from requests import HTTPError
 
 
-class ValidateUtil:
+class HttpValidator:
     @staticmethod
     def validate_endpoint(endpoint: str) -> bool:
         try:
